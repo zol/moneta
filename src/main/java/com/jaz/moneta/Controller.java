@@ -43,7 +43,7 @@ public class Controller
     // add actors
     this.subscribers.add(new EventLog());
     this.subscribers.add(new DepthTablePublisher());
-    this.subscribers.add(new DepthTimedWriter());
+    this.subscribers.add(new DepthTableWriter());
     
     this.client = new EClientSocket(new MktInfoPublisher());
   }
