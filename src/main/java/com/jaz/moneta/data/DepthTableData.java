@@ -43,7 +43,9 @@ public class DepthTableData
     Vector<Double> vals = new Vector();
     
     for(int i = 0;i < ROWS;i++) {
-      vals.add(new Double(bids[i].get("size")));
+      if (!bids[i].isEmpty()) {        
+        vals.add(new Double(bids[i].get("size")));
+      }
     }
     
     return String.valueOf(Calc.sum(vals));
@@ -53,7 +55,9 @@ public class DepthTableData
     Vector<Double> vals = new Vector();
     
     for(int i = 0;i < ROWS;i++) {
-      vals.add(new Double(asks[i].get("size")));
+      if (!asks[i].isEmpty()) {  
+        vals.add(new Double(asks[i].get("size")));
+      }
     }
     
     return String.valueOf(Calc.sum(vals));
@@ -63,8 +67,10 @@ public class DepthTableData
     Vector<Double> vals = new Vector();
     
     for(int i = 0;i < ROWS;i++) {
-      vals.add(new Double(bids[i].get("price")));
-      vals.add(new Double(bids[i].get("size")));      
+      if (!bids[i].isEmpty()) {
+        vals.add(new Double(bids[i].get("price")));
+        vals.add(new Double(bids[i].get("size")));
+      }
     }
     
     return String.valueOf(Calc.vwap(vals));
@@ -74,10 +80,18 @@ public class DepthTableData
     Vector<Double> vals = new Vector();
     
     for(int i = 0;i < ROWS;i++) {
-      vals.add(new Double(asks[i].get("price")));
-      vals.add(new Double(asks[i].get("size")));      
+      if (!asks[i].isEmpty()) {      
+        // String s = "";
+        // for (String key : asks[i].keySet()) {
+        //   s += " " + key + "=" + asks[i].get(key);
+        // }
+        // System.out.println(s);
+        
+        vals.add(new Double(asks[i].get("price")));
+        vals.add(new Double(asks[i].get("size")));
+      }
     }
     
     return String.valueOf(Calc.vwap(vals));
-  }
+  }  
 }

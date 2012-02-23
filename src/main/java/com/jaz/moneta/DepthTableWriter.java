@@ -55,7 +55,7 @@ public class DepthTableWriter
       stmt = conn.createStatement();
       
       // Date
-      SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+      SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
       formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
       String dateString = formatter.format(new Date());
       
@@ -89,7 +89,7 @@ public class DepthTableWriter
       stmt.executeUpdate(sql);
       //stmt.getUpdateCount(); // yields affected rows
       
-      logger.info("Wrote DepthTableData to DB at: " + dateString);
+      logger.info("Wrote to DB at: " + dateString + " id:" + id + " table:\n" + dt.toString());
     } catch (SQLException ex) {
       // handle any errors      
       logger.error(ex.getMessage());
@@ -113,6 +113,6 @@ public class DepthTableWriter
   @EventSubscriber(eventClass=DepthTableEvent.class)  
   public void onDepthTableEvent(DepthTableEvent evt) {
     write(evt.getId(), evt.getDepthTable());
-    // logger.info(evt.toString());        
+    // logger.info(evt.toString());     
   }
 }

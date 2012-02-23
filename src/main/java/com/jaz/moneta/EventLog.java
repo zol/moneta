@@ -16,10 +16,10 @@ public class EventLog {
   }
   
   // @EventSubscriber(eventClass=MktInfoEvent.class)  
-  // public void onMktInfoEvent(MktInfoEvent evt) {
-  //   logger.info(evt.toString());
-  // }  
-
+  //  public void onMktInfoEvent(MktInfoEvent evt) {
+  //    logger.info(evt.toString());
+  //  }  
+ 
   // @EventSubscriber(eventClass=MktDataEvent.class)  
   // public void onMktDataEvent(MktDataEvent evt) {
   //   logger.info(evt.toString());
@@ -27,6 +27,6 @@ public class EventLog {
   
   // @EventSubscriber(eventClass=DepthTableEvent.class)  
   // public void onDepthTableEvent(DepthTableEvent evt) {
-  //   logger.info(evt.toString());
+  //    logger.info(evt.toString());
   // }
 }
